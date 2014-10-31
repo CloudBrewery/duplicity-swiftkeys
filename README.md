@@ -1,23 +1,42 @@
-INSTALLATION:
+# Notes
+
+This is a fork of duplicity, which adds a `swiftkeys://` storage backend
+that supports Swift Container Keys
+(https://www.clouda.ca/blog/tech/dash/bulk-storage-container-api-keys/). For
+more the original project information, check the announcement blog post
+(https://www.clouda.ca/blog/general/using-bulk-storage-container-keys-with-duplicity/)
+
+# Installation
+
+If you have not downloaded it yet, you can grab the latest stable version from
+the repo archive page, and continue using the regular install steps below.
+
+```
+    wget https://bitbucket.org/clouda/duplicity/get/321.tar.gz 
+    tar -zxvf 321.tar.gz
+    cd duplicity-swiftkeys-xxx/
+```
 
 Thank you for trying duplicity.  To install, run:
 
-        python setup.py install
+```
+    pip install python-swiftclient lockfile
+    python setup.py install
+```
 
-The build process can be also be run separately:
+# Usage
 
-        python setup.py build
+```
+    export SWIFT_STORAGE_URL="https://<swift-endpoint>/v1/AUTH_<tenant_id>" 
+    export SWIFT_CONTAINER_FULL_TOKEN="<full-XXXX-token>"
+    duplicity <backup_path> swiftkeys://<container_name>
+```
 
-The default prefix is /usr, so files are put in /usr/bin,
-/usr/share/man/, etc.  An alternate prefix can be specified using the
---prefix=<prefix> option.  For example:
-
-        python setup.py install --prefix=/usr/local
-        export PYTHONPATH='/usr/local/lib/python2.x/site-packages/'
-        /usr/local/bin/duplicity -V
+You can get your tenant\_id filled bulk storage URL from the Dashboard under 
+API Access and listed as Object Store.
 
 
-REQUIREMENTS:
+# Requirements
 
  * Python v2.6 or later
  * librsync v0.9.6 or later
@@ -62,7 +81,7 @@ the class to gpginterface in the hope that package maintainers will stumble
 over it and stop this problematic behaviour for good.
 
 
-HELP:
+# Help
 
 For more information see the duplicity home page at:
 
@@ -71,3 +90,8 @@ For more information see the duplicity home page at:
 or post to the mailing list at
 
   http://mail.nongnu.org/mailman/listinfo/duplicity-talk/
+
+If there is an issue with the storage backend, you can log a bug on the
+project at
+
+  https://github.com/cloudbrewery/duplicity-swiftkeys/issues
