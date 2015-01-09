@@ -12,9 +12,9 @@ If you have not downloaded it yet, you can grab the latest stable version from
 the repo archive page, and continue using the regular install steps below.
 
 ```
-    wget https://bitbucket.org/clouda/duplicity/get/321.tar.gz 
-    tar -zxvf 321.tar.gz
-    cd duplicity-swiftkeys-xxx/
+    wget https://github.com/CloudBrewery/duplicity-swiftkeys/archive/373.tar.gz 
+    tar -zxvf 373.tar.gz
+    cd duplicity-swiftkeys/
 ```
 
 Thank you for trying duplicity.  To install, run:
