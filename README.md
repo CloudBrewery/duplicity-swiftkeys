@@ -1,3 +1,9 @@
+# This Project is Deprecated
+
+Due to functionality improvements in Bulk Storage Container Keys, this fork is
+no longer required to interact with our system securely. Check out
+docs.clouda.ca for more details on Container Keys functionality.
+
 # Notes
 
 This is a fork of duplicity, which adds a `swiftkeys://` storage backend
